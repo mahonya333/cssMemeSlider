@@ -46,13 +46,36 @@
 }
 
 .slider__text {
+    display: none;
     color: #fff;
 }
 
 .slider__dots {
-
+    display: flex;
+    gap: 1vw;
 }
 
-.slider__dots-btn {
+.slider__label {
+    display: flex;
+    padding: 1em;
+    border-radius: 50%;
+    background-color: orange;
+}
 
+.slider__input {
+    display: none;
+}
+
+.slider__input:nth-child(1):checked ~ .slider__carousel .slider__carousel-img:nth-child(1), 
+.slider__input:nth-child(2):checked ~ .slider__carousel .slider__carousel-img:nth-child(2), 
+.slider__input:nth-child(3):checked ~ .slider__carousel .slider__carousel-img:nth-child(3), 
+.slider__input:nth-child(4):checked ~ .slider__carousel .slider__carousel-img:nth-child(4) {
+    display: flex;
+}
+
+.slider__input:nth-child(1):checked ~ .slider__content .slider__text:nth-child(1), 
+.slider__input:nth-child(2):checked ~ .slider__content .slider__text:nth-child(2), 
+.slider__input:nth-child(3):checked ~ .slider__content .slider__text:nth-child(3), 
+.slider__input:nth-child(4):checked ~ .slider__content .slider__text:nth-child(4) {
+    display: flex;
 }

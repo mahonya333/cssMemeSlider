@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4%;
+    gap: 3vh;
     width: 70vw;
     height: 70vh;
     padding: 1%;
@@ -32,22 +32,22 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    transition: all .3s ease-in-out;
+    opacity: 0;
 }
 
 .slider__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1vh;
     width: 100%;
-}
-
-.slider__text-wrapper {
-
 }
 
 .slider__text {
     display: none;
     color: #fff;
+    opacity: 0;
 }
 
 .slider__dots {
@@ -56,14 +56,36 @@
 }
 
 .slider__label {
+    padding: 0.3em;
+}
+
+.slider__label-circle {
     display: flex;
-    padding: 1em;
+    width: 1em;
+    height: 1em;
     border-radius: 50%;
     background-color: orange;
+    transition: all .2s linear;
+}
+
+.slider__label-circle:hover {
+    background-color: purple;
+    cursor: pointer;
+}
+
+.slider__label-circle:active {
+    background-color: green;
 }
 
 .slider__input {
     display: none;
+}
+
+.slider__input:nth-child(1):checked ~ .slider__content .slider__label:nth-child(1) .slider__label-circle, 
+.slider__input:nth-child(2):checked ~ .slider__content .slider__label:nth-child(2) .slider__label-circle, 
+.slider__input:nth-child(3):checked ~ .slider__content .slider__label:nth-child(3) .slider__label-circle, 
+.slider__input:nth-child(4):checked ~ .slider__content .slider__label:nth-child(4) .slider__label-circle {
+    background-color: aqua;
 }
 
 .slider__input:nth-child(1):checked ~ .slider__carousel .slider__carousel-img:nth-child(1), 
@@ -71,6 +93,7 @@
 .slider__input:nth-child(3):checked ~ .slider__carousel .slider__carousel-img:nth-child(3), 
 .slider__input:nth-child(4):checked ~ .slider__carousel .slider__carousel-img:nth-child(4) {
     display: flex;
+    animation: fade-in 1.5s linear forwards;
 }
 
 .slider__input:nth-child(1):checked ~ .slider__content .slider__text:nth-child(1), 
@@ -78,4 +101,43 @@
 .slider__input:nth-child(3):checked ~ .slider__content .slider__text:nth-child(3), 
 .slider__input:nth-child(4):checked ~ .slider__content .slider__text:nth-child(4) {
     display: flex;
+    animation: translateX 1s linear forwards;
+}
+
+@media only screen and (max-width: 768px) {
+    .slider {
+        width: 92vw;
+        height: 92vh;
+        gap: 1vh;
+    }
+
+    .slider__carousel {
+        height: 85%;
+    }
+
+    .slider__content {
+        flex-direction: column;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes translateX {
+    0% {
+        opacity: 0;
+        transform: translateX(3vw);
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

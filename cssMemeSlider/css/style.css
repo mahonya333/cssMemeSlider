@@ -67,13 +67,20 @@
     transition: all .2s linear;
 }
 
-.slider__label-circle:hover {
-    background-color: purple;
+.slider__label:hover {
     cursor: pointer;
 }
 
-.slider__label-circle:active {
-    background-color: green;
+.slider__label:hover > .slider__label-circle {
+    background-color: purple !important;
+}
+
+/* .slider__label:active {
+    background-color: green !important;
+} */
+
+.slider__label:active > .slider__label-circle {
+    background-color: green !important;
 }
 
 .slider__input {
